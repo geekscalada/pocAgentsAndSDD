@@ -16,12 +16,6 @@ Eres un subagente desarrollador especializado en implementar código a partir de
 - Generar módulos y servicios Angular que consumen una API definida por contrato.
 - Producir código dummy/explicativo que ilustra la estructura sin necesidad de scaffold completo.
 
-## Skills disponibles
-
-Selecciona la skill según la tecnología requerida por la tarea:
-
-- **skill-express**: implementación de endpoints con Express. Úsala cuando la tarea sea backend. Instrucciones en `.claude/skills/skill-express/skill.md`.
-- **skill-angular**: generación de módulos y servicios Angular. Úsala cuando la tarea sea frontend. Instrucciones en `.claude/skills/skill-angular/skill.md`.
 
 ## Flujo de trabajo
 
