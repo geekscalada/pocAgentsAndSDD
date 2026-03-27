@@ -1,0 +1,24 @@
+{
+  "eval_id": 3,
+  "eval_name": "eval-formulario-post",
+  "run": "without_skill",
+  "summary": {
+    "pass_rate": 0.375,
+    "passed": 3,
+    "failed": 5,
+    "total": 8
+  },
+  "timing": {
+    "total_duration_seconds": 76.6
+  },
+  "expectations": [
+    {"text": "El código generado NO contiene NgModule", "passed": false, "evidence": "Genera app.module.ts con @NgModule declarations y HttpClientModule"},
+    {"text": "El componente declara standalone: true", "passed": false, "evidence": "No hay standalone: true; el componente se declara en AppModule"},
+    {"text": "Usa inject(HttpClient) en lugar de inyección por constructor", "passed": false, "evidence": "constructor(private fb: FormBuilder, private productoService: ProductoService)"},
+    {"text": "Usa signal() para gestionar el estado del resultado o errores", "passed": false, "evidence": "Propiedades de clase: productoCreado: Producto|null = null; enviando = false;"},
+    {"text": "El template usa @if para mostrar éxito/error, no *ngIf", "passed": false, "evidence": "<div *ngIf='productoCreado'> y <div *ngIf='errorMensaje'>"},
+    {"text": "Define una interfaz TypeScript para el request body y/o response", "passed": true, "evidence": "CrearProductoDto y Producto interfaces definidas"},
+    {"text": "Usa FormGroup/FormControl de ReactiveFormsModule", "passed": true, "evidence": "fb.group con Validators, markAllAsTouched()"},
+    {"text": "Llama a HttpClient.post() con el endpoint /productos", "passed": true, "evidence": "productoService.crearProducto() que llama http.post internamente"}
+  ]
+}

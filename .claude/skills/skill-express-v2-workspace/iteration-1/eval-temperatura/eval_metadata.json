@@ -1,0 +1,15 @@
+{
+  "eval_id": 1,
+  "eval_name": "eval-temperatura",
+  "prompt": "Tengo la siguiente spec OpenAPI y necesito que me generes el código Express de ejemplo para implementarla. Esto es para una demo:\n\nopenapi: 3.0.0\ninfo:\n  title: Temperature API\n  version: 1.0.0\nservers:\n  - url: http://localhost:3000\npaths:\n  /temperature/{city}:\n    get:\n      summary: Obtener temperatura máxima y mínima de una ciudad\n      operationId: getTemperatureByCity\n      parameters:\n        - name: city\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: timestamp\n          in: query\n          required: true\n          schema:\n            type: string\n            pattern: '^\\d{13}$'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [city, date, maxTemp, minTemp]\n                properties:\n                  city: { type: string }\n                  date: { type: string, format: date-time }\n                  maxTemp: { type: number }\n                  minTemp: { type: number }\n        '400':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [error, message]\n                properties:\n                  error: { type: string }\n                  message: { type: string }\n        '404':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [error, message]\n                properties:\n                  error: { type: string }\n                  message: { type: string }",
+  "assertions": [
+    "El output incluye un fichero app.js con require('express') y require('cors')",
+    "El output incluye un fichero de rutas para el recurso temperature (routes/temperature.js o similar)",
+    "El handler valida que el parámetro timestamp esté presente y devuelve status 400 si falta",
+    "El handler valida el formato de timestamp con una expresión regular de 13 dígitos",
+    "El handler devuelve 404 cuando la ciudad no existe en los datos dummy",
+    "La respuesta 200 incluye los cuatro campos requeridos: city, date, maxTemp, minTemp",
+    "Los datos dummy incluyen al menos 3 ciudades hardcodeadas con claves en minúsculas",
+    "El package.json incluye express y cors como dependencias"
+  ]
+}

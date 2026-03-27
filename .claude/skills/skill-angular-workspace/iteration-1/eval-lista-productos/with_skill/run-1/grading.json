@@ -1,0 +1,22 @@
+{
+  "eval_id": 1,
+  "eval_name": "eval-lista-productos",
+  "run": "with_skill",
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "timing": {
+    "total_duration_seconds": 36.2
+  },
+  "expectations": [
+    {"text": "El código generado NO contiene NgModule", "passed": true, "evidence": "No aparece NgModule en ningún bloque de código generado"},
+    {"text": "El componente declara standalone: true", "passed": true, "evidence": "standalone: true presente en el decorador @Component"},
+    {"text": "Usa inject(HttpClient) en lugar de inyección por constructor", "passed": true, "evidence": "private readonly http = inject(HttpClient); — sin constructor"},
+    {"text": "Usa signal() o toSignal() para gestionar el estado reactivo", "passed": true, "evidence": "readonly productos = toSignal<Producto[]>(...)"},
+    {"text": "El template usa @for y/o @if, no *ngFor/*ngIf", "passed": true, "evidence": "@if (!productos()) { ... } @for (producto of productos(); track producto.id)"},
+    {"text": "Define una interfaz TypeScript tipada para Producto con id, nombre y precio", "passed": true, "evidence": "export interface Producto { id: number; nombre: string; precio: number; }"}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "skill_name": "skill-angular",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tengo este endpoint en mi spec: `GET /productos` devuelve un array de `{id, nombre, precio}`. Genera el código Angular de ejemplo para mostrarlos en una lista.",
+      "expected_output": "Componente Angular 21 standalone con interfaz TypeScript tipada, uso de signals/toSignal, @for en template, inject(HttpClient), sin NgModule.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Mi spec define `GET /pedidos/{id}` que devuelve `{id, estado, total, lineas: [{productoId, cantidad, precio}]}`. Muéstrame cómo quedaría el componente Angular para mostrar el detalle de un pedido.",
+      "expected_output": "Componente Angular 21 standalone con interfaz tipada para Pedido y LineaPedido, input() para el id, signals para el estado de carga, @if/@for en template, sin NgModule.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Quiero un ejemplo Angular de un formulario para crear un producto. Mi spec tiene `POST /productos` con body `{nombre: string, precio: number, stock: number}` y devuelve el producto creado con su `id`.",
+      "expected_output": "Componente Angular 21 standalone con ReactiveFormsModule, FormGroup/FormControl tipados, handler de submit que llama a HttpClient.post(), signal para el resultado, @if para success/error, sin NgModule.",
+      "files": []
+    }
+  ]
+}

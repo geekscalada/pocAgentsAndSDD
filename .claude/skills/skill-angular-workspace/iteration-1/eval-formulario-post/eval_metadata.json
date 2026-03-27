@@ -1,0 +1,39 @@
+{
+  "eval_id": 3,
+  "eval_name": "eval-formulario-post",
+  "prompt": "Quiero un ejemplo Angular de un formulario para crear un producto. Mi spec tiene `POST /productos` con body `{nombre: string, precio: number, stock: number}` y devuelve el producto creado con su `id`.",
+  "assertions": [
+    {
+      "id": "no_ngmodule",
+      "description": "El código generado NO contiene NgModule"
+    },
+    {
+      "id": "standalone_true",
+      "description": "El componente declara standalone: true"
+    },
+    {
+      "id": "uses_inject_fn",
+      "description": "Usa inject(HttpClient) en lugar de inyección por constructor"
+    },
+    {
+      "id": "uses_signals_or_toSignal",
+      "description": "Usa signal() para gestionar el estado del resultado o errores"
+    },
+    {
+      "id": "new_control_flow",
+      "description": "El template usa @if para mostrar éxito/error, no *ngIf"
+    },
+    {
+      "id": "typed_interface",
+      "description": "Define una interfaz TypeScript para el request body y/o response"
+    },
+    {
+      "id": "uses_reactive_forms",
+      "description": "Usa FormGroup/FormControl de ReactiveFormsModule"
+    },
+    {
+      "id": "calls_post_endpoint",
+      "description": "Llama a HttpClient.post() con el endpoint /productos"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "eval_id": 2,
+  "eval_name": "eval-detalle-pedido",
+  "prompt": "Mi spec define `GET /pedidos/{id}` que devuelve `{id, estado, total, lineas: [{productoId, cantidad, precio}]}`. Muéstrame cómo quedaría el componente Angular para mostrar el detalle de un pedido.",
+  "assertions": [
+    {
+      "id": "no_ngmodule",
+      "description": "El código generado NO contiene NgModule"
+    },
+    {
+      "id": "standalone_true",
+      "description": "El componente declara standalone: true"
+    },
+    {
+      "id": "uses_inject_fn",
+      "description": "Usa inject(HttpClient) en lugar de inyección por constructor"
+    },
+    {
+      "id": "uses_signals_or_toSignal",
+      "description": "Usa signal() o toSignal() para gestionar el estado reactivo"
+    },
+    {
+      "id": "new_control_flow",
+      "description": "El template usa @for y/o @if, no *ngFor/*ngIf"
+    },
+    {
+      "id": "typed_interface",
+      "description": "Define interfaces TypeScript tipadas para Pedido y LineaPedido"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 3,
+  "eval_name": "eval-pedidos",
+  "prompt": "Necesito montar una API demo para crear y consultar pedidos. Aquí la spec:\n\nopenapi: 3.0.0\ninfo:\n  title: Orders API\n  version: 1.0.0\nservers:\n  - url: http://localhost:3000\npaths:\n  /orders:\n    post:\n      summary: Crear un nuevo pedido\n      operationId: createOrder\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required: [customerId, items]\n              properties:\n                customerId: { type: string }\n                items:\n                  type: array\n                  items:\n                    type: object\n                    required: [productId, quantity]\n                    properties:\n                      productId: { type: string }\n                      quantity: { type: integer, minimum: 1 }\n      responses:\n        '201':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [orderId, status, createdAt]\n                properties:\n                  orderId: { type: string }\n                  status: { type: string, enum: [pending, confirmed] }\n                  createdAt: { type: string, format: date-time }\n        '400':\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  error: { type: string }\n                  message: { type: string }",
+  "assertions": [
+    "El output incluye app.js con middlewares cors y express.json",
+    "El output incluye un fichero de rutas para el recurso orders",
+    "El handler POST /orders valida que customerId esté presente en el body y devuelve 400 si falta",
+    "El handler POST /orders valida que items sea un array no vacío y devuelve 400 si no lo es",
+    "La respuesta exitosa usa res.status(201) para la creación",
+    "La respuesta 201 incluye los tres campos requeridos: orderId, status y createdAt",
+    "El campo status de la respuesta tiene un valor válido del enum: 'pending' o 'confirmed'",
+    "El package.json incluye express y cors como dependencias"
+  ]
+}

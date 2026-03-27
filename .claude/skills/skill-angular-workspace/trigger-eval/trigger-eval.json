@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Tengo esta spec OpenAPI: GET /clientes devuelve {id, nombre, email}. Necesito el componente Angular para mostrar la lista, el backend corre en http://localhost:3000",
+    "should_trigger": true
+  },
+  {
+    "query": "Cómo haría el componente Angular para consumir mi endpoint de pedidos? La spec dice que GET /pedidos devuelve un array de {id, estado, fecha, total}",
+    "should_trigger": true
+  },
+  {
+    "query": "Genera el código de ejemplo Angular para un formulario que haga POST a /productos según mi spec yaml. El body es {nombre: string, precio: number, stock: number}",
+    "should_trigger": true
+  },
+  {
+    "query": "tengo esta spec openapi y quiero ver como se vería el código angular del componente que muestra los detalles de un usuario, el endpoint es GET /usuarios/{id}",
+    "should_trigger": true
+  },
+  {
+    "query": "Muéstrame el ejemplo Angular con signals para llamar al endpoint GET /facturas/{id}, el response es {id, total, estado, items: [{descripcion, importe}]}",
+    "should_trigger": true
+  },
+  {
+    "query": "dame un ejemplo de como consumir mi api en angular. el endpoint es POST /auth/login con body {email, password} y devuelve {token, userId, expiresIn}",
+    "should_trigger": true
+  },
+  {
+    "query": "necesito ver como quedaría el código angular standalone para listar mis reportes, el endpoint es GET /reportes y devuelve {id, titulo, fechaCreacion}[]",
+    "should_trigger": true
+  },
+  {
+    "query": "Generate a demo Angular component that calls my GET /products endpoint, response schema is {id: number, name: string, price: number, category: string}",
+    "should_trigger": true
+  },
+  {
+    "query": "quiero un ejemplo en angular de como mandar un PUT /empleados/{id} con body {nombre, departamento, salario}. Pongo aqui la spec que tengo",
+    "should_trigger": true
+  },
+  {
+    "query": "Tengo el contrato OpenAPI de mi API de inventario definido, ahora necesito el frontend. Cómo quedaría el código Angular para el componente de listado?",
+    "should_trigger": true
+  },
+  {
+    "query": "Genera el código Express para implementar el endpoint GET /clientes según esta spec OpenAPI, necesito el router y el app.js",
+    "should_trigger": false
+  },
+  {
+    "query": "Diseña la spec OpenAPI para mi API de gestión de pedidos con operaciones CRUD: listar, crear, actualizar y eliminar pedidos",
+    "should_trigger": false
+  },
+  {
+    "query": "Cómo configuro lazy loading de módulos en mi aplicación Angular? Tengo una app con varios feature modules y quiero optimizar el bundle",
+    "should_trigger": false
+  },
+  {
+    "query": "Crea la especificación OpenAPI/Swagger para un microservicio de autenticación con JWT, refresh tokens y endpoint de logout",
+    "should_trigger": false
+  },
+  {
+    "query": "Analiza esta spec OpenAPI y dime si tiene algún problema de diseño, los paths pueden tener conflictos y no sé si los response schemas están bien tipados",
+    "should_trigger": false
+  },
+  {
+    "query": "Necesito un componente React con hooks para mostrar una lista de productos que viene de mi API REST en /api/products",
+    "should_trigger": false
+  },
+  {
+    "query": "Cómo funciona la detección de cambios en Angular? Quiero entender cuándo usar OnPush vs Default y qué impacto tiene en el rendimiento",
+    "should_trigger": false
+  },
+  {
+    "query": "Escribe el servidor Express que sirva el endpoint POST /pedidos con validación, el frontend Angular ya está hecho y necesita este backend",
+    "should_trigger": false
+  },
+  {
+    "query": "Explícame qué diferencias hay entre OpenAPI 3.0 y 3.1 y cuál debería usar para documentar mi API REST",
+    "should_trigger": false
+  },
+  {
+    "query": "Cómo configuro CORS en mi backend Express para que mi frontend Angular en localhost:4200 pueda consumirlo sin errores de política de origen",
+    "should_trigger": false
+  }
+]

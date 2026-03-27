@@ -1,0 +1,22 @@
+{
+  "eval_id": 2,
+  "eval_name": "eval-detalle-pedido",
+  "run": "with_skill",
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 6,
+    "failed": 0,
+    "total": 6
+  },
+  "timing": {
+    "total_duration_seconds": 76.0
+  },
+  "expectations": [
+    {"text": "El código generado NO contiene NgModule", "passed": true, "evidence": "No aparece NgModule en ningún bloque generado"},
+    {"text": "El componente declara standalone: true", "passed": true, "evidence": "standalone: true en el decorador @Component"},
+    {"text": "Usa inject(HttpClient) en lugar de inyección por constructor", "passed": true, "evidence": "private readonly http = inject(HttpClient); inject(ActivatedRoute) / input.required<string>()"},
+    {"text": "Usa signal() o toSignal() para gestionar el estado reactivo", "passed": true, "evidence": "readonly pedido = toSignal<Pedido>(...) con toObservable + switchMap"},
+    {"text": "El template usa @for y/o @if, no *ngFor/*ngIf", "passed": true, "evidence": "@if, @for track linea.productoId, @empty"},
+    {"text": "Define interfaces TypeScript tipadas para Pedido y LineaPedido", "passed": true, "evidence": "export interface LineaPedido {...} export interface Pedido { lineas: LineaPedido[] }"}
+  ]
+}

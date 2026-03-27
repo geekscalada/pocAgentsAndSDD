@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "El output incluye app.js con middlewares cors y express.json",
+      "passed": true,
+      "evidence": "app.js con app.use(cors({ origin: 'http://localhost:4200' })) y app.use(express.json())"
+    },
+    {
+      "text": "El output incluye un fichero de rutas para el recurso products",
+      "passed": true,
+      "evidence": "routes/products.js presente con express.Router()"
+    },
+    {
+      "text": "Se implementa GET /products con filtrado opcional por query param category",
+      "passed": true,
+      "evidence": "router.get('/') con lógica if (category) { result = products.filter(...) }"
+    },
+    {
+      "text": "El filtrado por category es case-insensitive (usa .toLowerCase())",
+      "passed": true,
+      "evidence": "p.category.toLowerCase() === category.toLowerCase()"
+    },
+    {
+      "text": "Se implementa GET /products/:id con respuesta 404 para id inexistente",
+      "passed": true,
+      "evidence": "router.get('/:id') con if (!product) return res.status(404).json({error: 'NOT_FOUND', ...})"
+    },
+    {
+      "text": "La respuesta de cada producto incluye los cuatro campos requeridos: id, name, price, category",
+      "passed": true,
+      "evidence": "const products incluye objetos con { id, name, price, category } y se devuelven directamente"
+    },
+    {
+      "text": "Los datos dummy incluyen al menos 3 productos de categorías distintas",
+      "passed": true,
+      "evidence": "products con 4 entradas en categorías: electronics, sports, kitchen"
+    },
+    {
+      "text": "El package.json incluye express y cors como dependencias",
+      "passed": true,
+      "evidence": "dependencies: { cors: '^2.8.5', express: '^4.18.2' }"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

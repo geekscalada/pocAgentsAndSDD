@@ -1,0 +1,53 @@
+{
+  "skill_name": "skill-express-v2",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tengo la siguiente spec OpenAPI y necesito que me generes el código Express de ejemplo para implementarla. Esto es para una demo:\n\nopenapi: 3.0.0\ninfo:\n  title: Temperature API\n  version: 1.0.0\nservers:\n  - url: http://localhost:3000\npaths:\n  /temperature/{city}:\n    get:\n      summary: Obtener temperatura máxima y mínima de una ciudad\n      operationId: getTemperatureByCity\n      parameters:\n        - name: city\n          in: path\n          required: true\n          schema:\n            type: string\n        - name: timestamp\n          in: query\n          required: true\n          schema:\n            type: string\n            pattern: '^\\d{13}$'\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [city, date, maxTemp, minTemp]\n                properties:\n                  city: { type: string }\n                  date: { type: string, format: date-time }\n                  maxTemp: { type: number }\n                  minTemp: { type: number }\n        '400':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [error, message]\n                properties:\n                  error: { type: string }\n                  message: { type: string }\n        '404':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [error, message]\n                properties:\n                  error: { type: string }\n                  message: { type: string }",
+      "expected_output": "Código Express completo con app.js, routes/temperature.js y package.json. El handler debe validar el parámetro timestamp (obligatorio, 13 dígitos), devolver 400 si falla la validación, 404 si la ciudad no existe en los datos dummy, y 200 con los campos city, date, maxTemp, minTemp alineados con el schema.",
+      "files": [],
+      "expectations": [
+        "El output incluye un fichero app.js con require('express') y require('cors')",
+        "El output incluye un fichero de rutas para el recurso temperature (routes/temperature.js o similar)",
+        "El handler valida que el parámetro timestamp esté presente y devuelve status 400 si falta",
+        "El handler valida el formato de timestamp con una expresión regular de 13 dígitos (\\d{13})",
+        "El handler devuelve 404 cuando la ciudad no existe en los datos dummy",
+        "La respuesta 200 incluye los cuatro campos requeridos: city, date, maxTemp, minTemp",
+        "Los datos dummy incluyen al menos 3 ciudades hardcodeadas con claves en minúsculas",
+        "El package.json incluye express y cors como dependencias"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Quiero hacer una demo de una API de productos en Express. Aquí va la spec:\n\nopenapi: 3.0.0\ninfo:\n  title: Products API\n  version: 1.0.0\nservers:\n  - url: http://localhost:3000\npaths:\n  /products:\n    get:\n      summary: Listar todos los productos\n      operationId: listProducts\n      parameters:\n        - name: category\n          in: query\n          required: false\n          schema:\n            type: string\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                type: array\n                items:\n                  $ref: '#/components/schemas/Product'\n  /products/{id}:\n    get:\n      summary: Obtener producto por ID\n      operationId: getProductById\n      parameters:\n        - name: id\n          in: path\n          required: true\n          schema:\n            type: string\n      responses:\n        '200':\n          content:\n            application/json:\n              schema:\n                $ref: '#/components/schemas/Product'\n        '404':\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  error: { type: string }\n                  message: { type: string }\ncomponents:\n  schemas:\n    Product:\n      type: object\n      required: [id, name, price, category]\n      properties:\n        id: { type: string }\n        name: { type: string }\n        price: { type: number }\n        category: { type: string }",
+      "expected_output": "Código Express con app.js, routes/products.js y package.json. El router debe implementar GET /products (con filtro opcional por category) y GET /products/:id. Los datos dummy deben ser un array con 3-4 productos de categorías distintas. El 404 debe responder con el shape ErrorResponse. La búsqueda por id y el filtro por category deben funcionar correctamente sobre los datos dummy.",
+      "files": [],
+      "expectations": [
+        "El output incluye app.js con middlewares cors y express.json",
+        "El output incluye un fichero de rutas para el recurso products",
+        "Se implementa GET /products con filtrado opcional por query param category",
+        "El filtrado por category es case-insensitive (usa .toLowerCase())",
+        "Se implementa GET /products/:id con respuesta 404 para id inexistente",
+        "La respuesta de cada producto incluye los cuatro campos requeridos: id, name, price, category",
+        "Los datos dummy incluyen al menos 3 productos de categorías distintas",
+        "El package.json incluye express y cors como dependencias"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Necesito montar una API demo para crear y consultar pedidos. Aquí la spec:\n\nopenapi: 3.0.0\ninfo:\n  title: Orders API\n  version: 1.0.0\nservers:\n  - url: http://localhost:3000\npaths:\n  /orders:\n    post:\n      summary: Crear un nuevo pedido\n      operationId: createOrder\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n              required: [customerId, items]\n              properties:\n                customerId: { type: string }\n                items:\n                  type: array\n                  items:\n                    type: object\n                    required: [productId, quantity]\n                    properties:\n                      productId: { type: string }\n                      quantity: { type: integer, minimum: 1 }\n      responses:\n        '201':\n          content:\n            application/json:\n              schema:\n                type: object\n                required: [orderId, status, createdAt]\n                properties:\n                  orderId: { type: string }\n                  status: { type: string, enum: [pending, confirmed] }\n                  createdAt: { type: string, format: date-time }\n        '400':\n          content:\n            application/json:\n              schema:\n                type: object\n                properties:\n                  error: { type: string }\n                  message: { type: string }",
+      "expected_output": "Código Express con app.js, routes/orders.js y package.json. El handler POST /orders debe validar que customerId e items estén presentes en el body (devuelve 400 si faltan), y responder 201 con orderId generado (puede ser un UUID hardcodeado o con Date.now()), status 'confirmed' o 'pending' y createdAt en ISO 8601. No debe haber lógica de base de datos.",
+      "files": [],
+      "expectations": [
+        "El output incluye app.js con middlewares cors y express.json",
+        "El output incluye un fichero de rutas para el recurso orders",
+        "El handler POST /orders valida que customerId esté presente en el body y devuelve 400 si falta",
+        "El handler POST /orders valida que items sea un array no vacío y devuelve 400 si no lo es",
+        "La respuesta exitosa usa res.status(201) para la creación",
+        "La respuesta 201 incluye los tres campos requeridos: orderId, status y createdAt",
+        "El campo status de la respuesta tiene un valor válido del enum: 'pending' o 'confirmed'",
+        "El package.json incluye express y cors como dependencias"
+      ]
+    }
+  ]
+}

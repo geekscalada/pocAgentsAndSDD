@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "El output incluye app.js con middlewares cors y express.json",
+      "passed": true,
+      "evidence": "app.js con app.use(cors({ origin: 'http://localhost:4200' })) y app.use(express.json())"
+    },
+    {
+      "text": "El output incluye un fichero de rutas para el recurso orders",
+      "passed": true,
+      "evidence": "routes/orders.js presente con express.Router()"
+    },
+    {
+      "text": "El handler POST /orders valida que customerId esté presente en el body y devuelve 400 si falta",
+      "passed": true,
+      "evidence": "if (!customerId) { return res.status(400).json({error: 'BAD_REQUEST', ...}) }"
+    },
+    {
+      "text": "El handler POST /orders valida que items sea un array no vacío y devuelve 400 si no lo es",
+      "passed": true,
+      "evidence": "if (!items || !Array.isArray(items) || items.length === 0) { return res.status(400)... }"
+    },
+    {
+      "text": "La respuesta exitosa usa res.status(201) para la creación",
+      "passed": true,
+      "evidence": "return res.status(201).json(order)"
+    },
+    {
+      "text": "La respuesta 201 incluye los tres campos requeridos: orderId, status y createdAt",
+      "passed": true,
+      "evidence": "{ orderId: `ord-${Date.now()}`, status: 'pending', createdAt: new Date().toISOString() }"
+    },
+    {
+      "text": "El campo status de la respuesta tiene un valor válido del enum: 'pending' o 'confirmed'",
+      "passed": true,
+      "evidence": "status: 'pending' — valor válido del enum [pending, confirmed]"
+    },
+    {
+      "text": "El package.json incluye express y cors como dependencias",
+      "passed": true,
+      "evidence": "dependencies: { cors: '^2.8.5', express: '^4.18.2' }"
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "eval_id": 3,
+  "eval_name": "eval-formulario-post",
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "El código generado NO contiene NgModule",
+      "passed": false,
+      "evidence": "Genera app.module.ts con @NgModule({ declarations: [CrearProductoComponent], imports: [BrowserModule, ReactiveFormsModule, HttpClientModule] })"
+    },
+    {
+      "text": "El componente declara standalone: true",
+      "passed": false,
+      "evidence": "No hay standalone: true en el decorador @Component; el componente se declara en AppModule"
+    },
+    {
+      "text": "Usa inject(HttpClient) en lugar de inyección por constructor",
+      "passed": false,
+      "evidence": "constructor(private fb: FormBuilder, private productoService: ProductoService) {} — constructor injection"
+    },
+    {
+      "text": "Usa signal() para gestionar el estado del resultado o errores",
+      "passed": false,
+      "evidence": "Usa propiedades de clase: productoCreado: Producto | null = null; errorMensaje: string | null = null; enviando = false;"
+    },
+    {
+      "text": "El template usa @if para mostrar éxito/error, no *ngIf",
+      "passed": false,
+      "evidence": "<div *ngIf=\"productoCreado\"> y <div *ngIf=\"errorMensaje\"> en el template"
+    },
+    {
+      "text": "Define una interfaz TypeScript para el request body y/o response",
+      "passed": true,
+      "evidence": "export interface CrearProductoDto {...} export interface Producto { id, nombre, precio, stock }"
+    },
+    {
+      "text": "Usa FormGroup/FormControl de ReactiveFormsModule",
+      "passed": true,
+      "evidence": "FormBuilder con fb.group({ nombre, precio, stock }), Validators.required, markAllAsTouched()"
+    },
+    {
+      "text": "Llama a HttpClient.post() con el endpoint /productos",
+      "passed": true,
+      "evidence": "this.productoService.crearProducto(this.form.value) que internamente llama http.post(...)"
+    }
+  ]
+}
