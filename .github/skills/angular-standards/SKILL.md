@@ -1,6 +1,12 @@
 ---
 name: angular-standards
-description: Playbook de estándares Angular para este monorepo. Invócalo con /angular-standards para obtener las convenciones, estructura, patrones y anti-patrones del frontend Angular del proyecto.
+description: >
+  Playbook de estándares Angular para este monorepo. USA ESTE SKILL para cualquier tarea del
+  frontend Angular: crear componentes, containers, servicios HTTP, guards, interceptors, pipes,
+  formularios reactivos, rutas con lazy loading, gestión de estado o tests unitarios en
+  apps/angular-app/. También cuando se consuma un endpoint nuevo del backend Express, se modifiquen
+  modelos/DTOs del frontend, se refactorice un módulo o feature, o se corrija un bug en el frontend.
+  NO usar para tareas exclusivas de Express o CDK.
 ---
 
 # Angular Standards — pocAgentesSubAgentesSDD

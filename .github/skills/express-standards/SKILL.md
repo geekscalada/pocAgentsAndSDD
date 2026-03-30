@@ -1,6 +1,8 @@
 ---
 name: express-standards
-description: Playbook de estándares Express/Node para este monorepo. Invócalo con /express-standards para obtener las convenciones, estructura en capas, patrones y anti-patrones del backend Express del proyecto.
+description: >
+  Playbook de estándares Express/Node para este monorepo. USA ESTE SKILL para cualquier tarea de desarrollo o mantenimiento con express. También cuando se modifiquen endpoints existentes, se añadan nuevos recursos REST, se refactorice la capa de acceso a datos o se corrija un bug en el backend.
+  NO usar para tareas exclusivas de Angular o CDK.
 ---
 
 # Express Standards — pocAgentesSubAgentesSDD
