@@ -1,24 +1,5 @@
 # pocAgentesSubAgentesSDD — Project Guidelines
 
-## Arquitectura del repositorio
-
-Monorepo con tres stacks:
-- `apps/angular-app/` — frontend Angular
-- `services/express-api/` — backend Express/Node
-- `infra/cdk/` — infraestructura AWS CDK
-
-## Agentes especializados disponibles
-
-Para tareas específicas de cada stack, usa los agentes personalizados disponibles:
-- **app-orchestrator** — coordina tareas que afectan a múltiples stacks
-- **backend-express** — especialista en `services/express-api/`
-- **frontend-angular** — especialista en `apps/angular-app/`
-- **infra-cdk** — especialista en `infra/cdk/`
-- **integration-reviewer** — verifica coherencia entre capas (solo lectura)
-- **test-reviewer** — auditor de cobertura de tests (solo lectura)
-
-Para tareas que afecten a múltiples stacks, usa **app-orchestrator** para coordinar.
-
 ## Reglas transversales obligatorias
 
 **Contratos API:**
