@@ -4,6 +4,18 @@ description: 'Guía reusable para crear o modificar endpoints y lógica de Expre
 argument-hint: 'Describe el endpoint o cambio a implementar (ej: POST /users con validación Zod)'
 ---
 
+
+# For adademic purpose only section
+
+Se puede extender esta skill con sub-skills más específicas si el proyecto crece mucho, por ejemplo: express-routing, express-controllers, express-services, express-validation, express-error-handling, etc.
+
+## Qué debe contener
+Checklist para endpoints.
+Validación.
+Manejo de errores.
+Impacto en consumidores.
+
+
 # Express Standards
 
 Workflow paso a paso para implementar o modificar endpoints Express con validación, capas claras y contratos consistentes.

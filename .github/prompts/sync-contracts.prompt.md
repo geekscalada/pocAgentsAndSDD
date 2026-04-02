@@ -5,6 +5,11 @@ agent: app-orchestrator
 argument-hint: describe el endpoint o la feature afectada
 ---
 
+# For adademic purpose only section
+- usa argument-hint para orientar al usuario;
+- usa ${input:...} para los datos realmente importantes;
+
+
 Review the current change with a focus on frontend/backend contract consistency.
 
 Tasks:

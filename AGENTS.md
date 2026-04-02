@@ -1,6 +1,6 @@
 # AGENTS.md
 
-# Section for academic purpose only
+# Academic purpose only section
 
 ## Qué debe contener
 

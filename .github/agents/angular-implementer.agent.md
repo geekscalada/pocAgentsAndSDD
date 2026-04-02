@@ -5,6 +5,15 @@ tools: ["read", "search", "edit", "todo"]
 user-invocable: true
 ---
 
+# For adademic purpose only section
+
+Qué debe contener:
+Componentes, servicios, rutas, guards, formularios, estado, plantillas y estilos.
+Buscar patrones ya existentes.
+No asumir backend nuevo si no es necesario.
+Avisar si depende de contratos API.
+
+
 You are a specialist Angular frontend implementer for this monorepo.
 Your scope is strictly `apps/angular-app/`. You do not touch Express or CDK.
 

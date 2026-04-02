@@ -2,7 +2,7 @@
 applyTo: "**/*.md"
 ---
 
-# Section for academic purpose only
+# For adademic purpose only section
 
 Este tipo de  ficheros matchean vs un path o tipo de documento específico.
 Sirven para dar instrucciones de estilo o contenido para ese tipo de documentos. 
