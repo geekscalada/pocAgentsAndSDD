@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "echo \"hook Stop ejecutado OK\"",
+        "timeoutSec": 120
+      }
+    ]
+  }
+}
