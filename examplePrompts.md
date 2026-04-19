@@ -1,19 +1,8 @@
+Quiero generar una landing page simple sin importar la estética usando como única tecnología HTML5 sin usar CSS, javascript ni lenguajes ni frameworks adicionales.
+La web es de un mecánico de coches llamado "Taller Ricardo" y debe de tener un h1 rojo con el título y una lista
+con los servicios que ofrece el taller, que son: cambio de aceite, reparación de frenos y alineación de ruedas.
 
-# API-front dummy
+Después debe de contener un párrafo con la dirección del taller, que es "Calle Falsa 123, Ciudad", y un número de teléfono, que es "555-1234". Finalmente, debe haber un enlace para contactar al taller por correo electrónico, con el texto "Contáctanos" y el correo "taller.ricardo@example.com".
+Letras negras, fuente cualquiera que sea estándar. 
 
-Desarrolla una API rest dummy en express que va a ser consumida por un servicio Angular. 
-La idea es que los snippets de código sean demostrativos, dummy, hardcodeados.
-La API constará de un solo GET con base URL `http://localhost:3000/temperature`.
-El path es la ciudad y la feccha es el día que queremos consultar, insertado por timestamp de 13 dígitos en el queryParam.
-La API devolverá un JSON con la temperatura máxima y mínima de ese día en esa ciudad, con datos dummy hardcodeados.
-El front constará de un placeholder donde añadir la ciudad y un botón rojo "buscar".
-Al hacer click en el botón, se hará la consulta a la API y se mostrarán los resultados debajo del botón, en letras grandes y azules.
-
-
-
-# Ejemplo solo express
-
-Desarrolla una API rest en express. 
-La API constará de un solo GET con base URL `http://localhost:3000/temperature`.
-El path es la ciudad y la feccha es el día que queremos consultar, insertado por timestamp de 13 dígitos en el queryParam.
-La API devolverá un JSON con la temperatura máxima y mínima de ese día en esa ciudad, con datos dummy hardcodeados.
+Intentaremos ser semánticos en el HTML, evitando usar `div` salvo que sea necesario.
