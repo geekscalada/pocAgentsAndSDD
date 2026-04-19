@@ -1,0 +1,102 @@
+<!--
+  Assumptions:
+  - [lang] Fill in the BCP 47 language tag (e.g., "es", "en", "fr")
+  - [page-title] Replace with a concise, descriptive page title (shown in browser tab)
+  - [description] Replace with a 150-160 character meta description for SEO
+  - Structure: header → nav (optional) → main → footer
+  - Remove any landmark not needed for this specific page
+-->
+<!DOCTYPE html>
+<html lang="[lang]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="[description]">
+  <title>[page-title]</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <a href="/" aria-label="Go to homepage">
+      <!-- Logo or site name -->
+    </a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <!-- Add more items as needed -->
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>[Main page heading]</h1>
+
+    <!-- === PRIMARY CONTENT SECTION === -->
+    <section aria-labelledby="section-1-heading">
+      <h2 id="section-1-heading">[Section heading]</h2>
+      <p>[Content]</p>
+    </section>
+
+    <!-- === ARTICLE (self-contained content) === -->
+    <!--
+    <article>
+      <h2>[Article heading]</h2>
+      <p>[Content]</p>
+    </article>
+    -->
+
+    <!-- === FIGURE WITH CAPTION === -->
+    <!--
+    <figure>
+      <img src="image.jpg" alt="[Descriptive alt text]" width="800" height="600">
+      <figcaption>[Caption describing the image]</figcaption>
+    </figure>
+    -->
+
+    <!-- === ACCESSIBLE FORM === -->
+    <!--
+    <form action="/submit" method="post" novalidate>
+      <fieldset>
+        <legend>[Form group title]</legend>
+
+        <div>
+          <label for="field-name">[Field label]</label>
+          <input type="text" id="field-name" name="field-name" autocomplete="name" required>
+        </div>
+
+        <div>
+          <label for="field-email">Email address</label>
+          <input type="email" id="field-email" name="email" autocomplete="email" required>
+        </div>
+
+        <div>
+          <label for="field-message">Message</label>
+          <textarea id="field-message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Send message</button>
+      </fieldset>
+    </form>
+    -->
+
+  </main>
+
+  <aside aria-label="[Sidebar label]">
+    <!-- Tangentially related content: related links, callout, ad, etc. -->
+    <!-- Remove <aside> if not needed -->
+  </aside>
+
+  <footer>
+    <p><small>&copy; <time datetime="[YYYY]">[YYYY]</time> [Organization]. All rights reserved.</small></p>
+    <nav aria-label="Footer navigation">
+      <ul>
+        <li><a href="/privacy">Privacy policy</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+</body>
+</html>
