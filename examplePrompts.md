@@ -1,7 +1,7 @@
 
 # API-front dummy
 
-Desarrolla una API rest dummy en express que va a ser consultada por un servicio Angular. 
+Desarrolla una API rest dummy en express que va a ser consumida por un servicio Angular. 
 La idea es que los snippets de código sean demostrativos, dummy, hardcodeados.
 La API constará de un solo GET con base URL `http://localhost:3000/temperature`.
 El path es la ciudad y la feccha es el día que queremos consultar, insertado por timestamp de 13 dígitos en el queryParam.
